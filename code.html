@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Field of Interest</title>
+    <style>
+        /* CSS styles */
+        
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        
+        h1 {
+            color: #333333;
+        }
+        
+        label {
+            font-size: 18px;
+            margin-bottom: 10px;
+            display: block;
+        }
+        
+        select {
+            font-size: 16px;
+            padding: 10px;
+            width: 60%;
+            margin: 0 auto;
+            display: block;
+        }
+        
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            margin-top: 20px;
+        }
+        
+        .button:hover {
+            background-color: #0056b3;
+        }
+        /* Hide additional sections initially */
+        
+        .additional-sections {
+            display: none;
+        }
+        
+        .visible {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Select Your Field of Interest</h1>
+        <form id="interestForm">
+            <label for="field">Choose your field:</label>
+            <select name="field" id="field">
+                <option value="">Select...</option>
+                <option value="programmer">Programmer</option>
+                <option value="design">Design</option>
+                <option value="business">Business</option>
+                <option value="science">Science</option>
+                <option value="art">Art</option>
+            </select>
+            <br>
+            <button type="submit" class="button">Submit</button>
+        </form>
+
+        <!-- Additional sections -->
+        <div id="programmerSection" class="additional-sections">
+            <h2>Programmer Skills, Companies, and Internships</h2>
+            <!-- Include the content from the previous page here -->
+            <h2>Skills Required:</h2>
+            <ul>
+                <li>Proficiency in programming languages such as Python, JavaScript, Java, C++, etc.</li>
+                <li>Understanding of data structures and algorithms.</li>
+                <li>Experience with version control systems like Git.</li>
+                <li>Problem-solving and critical thinking abilities.</li>
+                <li>Knowledge of web development frameworks and technologies.</li>
+                <li>Ability to work in a team and communicate effectively.</li>
+            </ul>
+            <div class="companies">
+                <h2>Companies Best Suited for Programmers:</h2>
+                <div class="company">1. Google</div>
+                <div class="company">2. Microsoft</div>
+                <div class="company">3. Amazon</div>
+                <div class="company">4. Facebook</div>
+                <div class="company">5. Apple</div>
+            </div>
+            <div class="internships">
+                <h2>Internships Available:</h2>
+                <p>There are numerous internship opportunities available for aspiring programmers. These internships provide hands-on experience and valuable insights into the industry. Many tech giants like Google, Microsoft, and Amazon offer internships
+                    for students and recent graduates.</p>
+                <p>Interns typically work on real-world projects under the guidance of experienced professionals, gaining practical skills and networking opportunities. Some internships may focus on specific technologies or areas of interest, such as software
+                    development, data analysis, or cybersecurity.</p>
+                <p>Internships can be a stepping stone to a successful career in programming, providing valuable experience, mentorship, and exposure to cutting-edge technologies. Students interested in pursuing internships should actively seek out opportunities
+                    through career fairs, online job boards, and company websites.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="designSection" class="additional-sections">
+        <h2>Design Skills and Companies</h2>
+        <p>Designers require a mix of technical skills and creative abilities. Some essential skills for designers include proficiency in design software like Adobe Photoshop, Illustrator, Sketch, or Figma. They also need strong knowledge of design principles,
+            typography, color theory, and user experience (UX) design.</p>
+        <p>Companies that value design and often hire designers include Adobe, Apple, Google, Facebook, and IDEO. These companies offer opportunities for designers to work on innovative projects and contribute to creating user-friendly products and interfaces.</p>
+    </div>
+    <div id="businessSection" class="additional-sections">
+        <h2>Business Skills and Companies</h2>
+        <p>Professionals in the field of business require a diverse set of skills to thrive in various roles. Key skills include strategic thinking, leadership, communication, financial literacy, project management, and analytical skills.</p>
+        <p>Companies that offer opportunities for business professionals span across various industries, including finance, consulting, technology, retail, and healthcare. Some prominent companies known for their business acumen and career growth opportunities
+            include McKinsey & Company, Goldman Sachs, Google, Amazon, and Procter & Gamble.</p>
+    </div>
+
+    <script>
+        document.getElementById('interestForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            var field = document.getElementById('field').value;
+            var programmerSection = document.getElementById('programmerSection');
+            var designSection = document.getElementById('designSection');
+
+            if (field === 'programmer') {
+                programmerSection.classList.add('visible');
+                designSection.classList.remove('visible');
+                businessSection.classList.remove('visible');
+
+            } else if (field === 'design') {
+                programmerSection.classList.remove('visible');
+                designSection.classList.add('visible');
+                businessSection.classList.remove('visible');
+            } else if (field === 'business') {
+                programmerSection.classList.remove('visible');
+                designSection.classList.remove('visible');
+                businessSection.classList.add('visible');
+            } else {
+                programmerSection.classList.remove('visible');
+                designSection.classList.remove('visible');
+                businessSection.classList.remove('visible');
+            }
+        });
+    </script>
+</body>
+
+</html>
